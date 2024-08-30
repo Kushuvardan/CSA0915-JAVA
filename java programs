@@ -1,0 +1,640 @@
+1. Write a Java program that takes two integers as input from the user and calculates their sum, difference, product, and quotient using arithmetic operators.
+import java.util.*;
+public class R192211776{
+ public static void main(String[] args) {
+   Scanner input = new Scanner(System.in);
+    int n1=4;
+    int n2=5;
+    int sum = n1+n2;
+    int difference = n1-n2;
+    int product = n1*n2;
+    double div = n1/n2;
+   System.out.println("The sum of " + n1 + " and " + n2 + " is " + sum);
+    System.out.println("difference of " + n1 + " and " + n2 +" is "+ difference);
+    System.out.println("product of " + n1 + " and " + n2 +" is "+ product);
+    System.out.println("divison of " + n1 + " and " + n2 +" is "+ div);
+  }
+}
+
+2. Write a Java program to find the maximum of three numbers using conditional statements.
+import java.util.Scanner;
+public class R192211776{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
+        int max = (num1 > num2) ? (num1 > num3 ? num1 : num3) : (num2 > num3 ? num2 : num3);
+        System.out.println("The maximum number is : " + max);
+    }
+}
+
+3. Write a Java program to check whether a given year is a leap year or not using conditional statements.
+import java.util.*;
+public class R192211776{
+ public static void main (String[]args){
+   Scanner scanner=new Scanner(System.in);
+  int year = scanner.nextInt();
+   if(year% 4 == 0 && year%400!=0){
+     System.out.print("leap year");
+   }else{
+     System.out.print("not a leap year");
+   }
+ } 
+} 
+
+4. Write a Java program to print the Fibonacci series up to a given number using loops.
+public class R192211776 {
+    public static void main(String[] args) {
+        int n = 10;
+        int a = 0, b = 1;
+
+        System.out.print("Fibonacci Series: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+    }
+}
+
+
+5. Write a Java program to calculate the factorial of a given number using loops.
+import java.util.Scanner;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a non-negative integer: ");
+        int number = scanner.nextInt();
+        if (number < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            long factorial = 1;
+            for (int i = 1; i <= number; i++) {
+                factorial *= i;
+            }
+            System.out.println("The factorial of " + number + " is " + factorial);
+        }
+
+        scanner.close();
+    }
+}
+
+6. Write a Java program to print the following pattern using loops:* ** *** **** *****
+import java.util.Scanner;
+public class R192211776 {
+ public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int rows = scanner.nextInt();
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+7. Write a Java program to implement binary search on an array of integers using loops and conditional statements.
+import java.util.Scanner;
+public class R192211776{
+    public static int binarySearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                return mid;
+            }
+            if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;
+    }
+  public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        int target = scanner.nextInt();
+        int result = binarySearch(arr, target);
+        if (result == -1) {
+            System.out.println("Element not found in the array.");
+        } else {
+            System.out.println("element "+target+" found at index: " + result);
+        }
+    }
+}
+
+8. Write a Java program to find the GCD (Greatest Common Divisor) of two numbers using loops and conditional statements.
+import java.util.Scanner;
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+ if (num1 == 0 || num2 == 0) {
+            System.out.println("GCD is not defined for zero.");
+        } else {
+            int gcd = findGCD(Math.abs(num1), Math.abs(num2));
+            System.out.println("The GCD of " + num1 + " and " + num2 + " is " + gcd);
+        } scanner.close();
+    }public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return findGCD(b, a % b);
+        }
+    }
+}
+
+9. Write a Java program to check whether a given number is a prime number or not using loops and conditional statements.
+import java.util.Scanner;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+
+        if (number < 2) {
+            System.out.println(number + " is not a prime number.");
+        } else {
+            boolean isPrime = true;
+            for (int i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            System.out.println(number + (isPrime ? " is a prime number." : " is not a prime number."));
+        }
+        scanner.close();
+    }
+}
+
+10. Write a Java program to implement selection sort on an array of integers using loops and conditional statements.
+import java.util.Scanner;
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+      System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        } for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex =j;
+                }
+            }
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+
+        System.out.println("Sorted array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+11. Write a Java program to print the multiplication table of a given number using loops.
+import java.util.Scanner;
+public class R192211776{
+  public static void main(String[] args0){
+    Scanner input =new Scanner(System.in);
+    int number = input.nextInt();
+    int range = input.nextInt();
+    if(number <= 0 || range <=0){
+      System.out.print("enter a positive number: ");
+    }else{
+      for(int i=1;i<=range;i++){
+        System.out.println(number+"X"+i+"="+(number*i));
+      }
+    }
+    input.close();
+  }
+}
+
+12. 2. Write a Java program to find the factorial of a given number using recursion.
+import java.util.Scanner;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a non-negative integer: ");
+        int number = scanner.nextInt();
+
+        if (number < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            long factorial = calculateFactorial(number);
+            System.out.println("The factorial of " + number + " is " + factorial);
+        }
+
+        scanner.close();
+    }
+
+    public static long calculateFactorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * calculateFactorial(n - 1);
+        }
+    }
+}
+
+
+13. Write a Java program to print the following pattern using loops:***** **** *** ** *
+import java.util.Scanner;
+public class R192211776{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int rows = scanner.nextInt();
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+14. Write a Java program to find the LCM (Least Common Multiple) of two numbers using loops and conditional statements.
+import java.util.Scanner;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int num1 = scanner.nextInt();
+
+        int num2 = scanner.nextInt();
+
+        if (num1 <= 0 || num2 <= 0) {
+            System.out.println("LCM is not defined for non-positive numbers.");
+        } else {
+            int lcm = findLCM(num1, num2);
+            System.out.println("The LCM of " + num1 + " and " + num2 + " is " + lcm);
+        }
+
+        scanner.close();
+    }
+
+    public static int findLCM(int a, int b) {
+        return (a * b) / findGCD(a, b);
+    }
+
+    public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return findGCD(b, a % b);
+        }
+    }
+}
+
+
+15. Write a Java program to convert a decimal number to binary using loops and conditional statements.
+import java.util.Scanner;
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int decimal = scanner.nextInt();
+        String binary = Integer.toBinaryString(decimal);
+        System.out.println("Binary representation of " +decimal+" is "+ binary);
+    }
+}
+
+
+16. Write a Java program to convert a binary number to decimal using loops and conditional statements.
+import java.util.Scanner;
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a binary number: ");
+        String binaryString = scanner.nextLine();
+        try {
+            int decimalNumber = Integer.parseInt(binaryString, 2);
+            System.out.println("Decimal: " + decimalNumber);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid binary number.");
+        }
+    }
+}
+
+
+17. Write a Java program to calculate the sum of the digits of a given number using loops and conditional statements.
+import java.util.Scanner;
+
+public class R192211776{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        int sum = 0;
+        while (number != 0) {
+            sum +=number % 10;
+            number /= 10;
+        }
+        System.out.println("Sum of digits: " + sum);
+    }
+}
+
+
+18. Write a Java program to calculate the product of the digits of a given number using loops and conditional statements.
+import java.util.Scanner;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        int product = 1;
+        while (number != 0) {
+            product *= number % 10;
+            number /= 10;
+        }
+        System.out.println("Product of digits: " + product);
+    }
+}
+
+
+19. Write a Java program to find the power of a number using loops and conditional statements.
+import java.util.Scanner;
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int base = scanner.nextInt();
+        int exponent = scanner.nextInt();
+        int result = 1;for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }System.out.println(base + " raised to the power of " + exponent + " is " + result);
+        scanner.close();
+    }
+}
+
+20. Write a Java program to calculate the area of a circle using the radius input by the user.
+import java.util.Scanner;
+public class R192211776{
+  public static void main(String[] args){
+    Scanner scanner =new Scanner(System.in);
+    double radius = scanner.nextInt();
+    double area = Math.PI*radius*radius;
+    System.out.println("the area of circle with radius "+radius+" is "+area);
+  }
+}
+
+21. Write a Java program to calculate the volume of a sphere using the radius input by the user.
+import java.util.Scanner;
+public class R192211776{
+  public static void main(String[] args){
+    Scanner scanner =new Scanner(System.in);
+    double radius = scanner.nextInt();
+    double area = (4.0/3.0)*Math.PI*radius*radius*radius;
+    System.out.println("the area of circle with radius "+radius+" is "+area);
+  }
+}
+
+22. Write a Java program to check whether a given string is a palindrome or not using loops and conditional statements.
+import java.util.Scanner;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        int originalNumber = number;
+        int reversedNumber = 0;
+
+        while (number != 0) {
+            int digit = number % 10;
+            reversedNumber = reversedNumber * 10 + digit;
+            number /= 10;
+        }
+
+        System.out.println(originalNumber + (originalNumber == reversedNumber ? " is a palindrome." : " is not a palindrome."));
+        scanner.close();
+    }
+}
+
+
+23. Write a Java program to check whether a given number is an Armstrong number or not using loops and conditional statements.
+import java.util.Scanner;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        int originalNumber = number;
+        int sum = 0;
+        int digits = String.valueOf(number).length();
+
+        while (number != 0) {
+            int digit = number % 10;
+            sum += Math.pow(digit, digits);
+            number /= 10;
+        }
+
+        System.out.println(originalNumber + (sum == originalNumber ? " is an Armstrong number." : " is not an Armstrong number."));
+        scanner.close();
+    }
+}
+
+24. Write a Java program to print the following pattern using loops:1 22 333 4444 55555
+import java.util.Scanner;
+public class R192211776 {
+ public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int rows = scanner.nextInt();
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i );
+            }
+            System.out.println();
+        }
+    }
+}
+
+25. Write a Java program to check whether a given number is a perfect number or not using loops and conditional statements.
+import java.util.Scanner;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int sum = 0;
+
+        for (int i = 1; i <= number / 2; i++) {
+            if (number % i == 0) {
+                sum += i;
+            }
+        }
+
+        if (sum == number && number != 0) {
+            System.out.println(number + " is a perfect number.");
+        } else {
+            System.out.println(number + " is not a perfect number.");
+        }
+
+        scanner.close();
+    }
+}
+
+26. Write a Java program to find the largest element in an array of integers using loops and conditional statements.
+public class R192211776{
+    public static void main(String[] args) {
+        int[] arr = {8, 4, 3, 1, 9, 6, 2};
+        if (arr.length == 0) {
+            System.out.println("Array is empty.");
+            return;
+        }
+        int largest = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+        System.out.println("The largest element is: " + largest);
+    }
+}
+
+
+27. Write a Java program to find the second largest element in an array of integers using loops and conditional statements.
+import java.util.Arrays;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        int[] arr = {8, 4, 3, 1, 9, 6, 2};
+        if (arr.length < 2) {
+            System.out.println("Array should have at least two elements.");
+            return;
+        }
+        Arrays.sort(arr);
+        int largest = arr[arr.length - 1];
+        int secondLargest = Integer.MIN_VALUE;
+        for (int i = arr.length - 2; i >= 0; i--) {
+            if (arr[i] < largest) {
+                secondLargest = arr[i];
+                break;
+            }
+        }
+        if (secondLargest == Integer.MIN_VALUE) {
+            System.out.println("All elements in the array are the same.");
+        } else {
+            System.out.println("The second largest element is: " + secondLargest);
+        }
+    }
+}
+
+
+28. Write a Java program to find the smallest element in an array of integers using loops and conditional statements.
+public class R192211776{
+    public static void main(String[] args) {
+        int[] arr = {64, 25, 12, 22, 11};
+        int smallest = findSmallest(arr);
+        System.out.println("Smallest element in the array: " + smallest);
+    }
+
+    public static int findSmallest(int[] arr) {
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+}
+
+
+29. Write a Java program to find the second smallest element in an array of integers using loops and conditional statements.
+import java.util.Arrays;
+
+public class R192211776 {
+    public static void main(String[] args) {
+        int[] arr = {8, 4, 3, 1, 9, 6, 2};
+        if (arr.length < 2) {
+            System.out.println("Array should have at least two elements.");
+            return;
+        }
+        Arrays.sort(arr);
+        int smallest = arr[0];
+        int secondSmallest = Integer.MAX_VALUE;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > smallest) {
+                secondSmallest = arr[i];
+                break;
+            }
+        }
+        if (secondSmallest == Integer.MAX_VALUE) {
+            System.out.println("All elements in the array are the same.");
+        } else {
+            System.out.println("The second smallest element is: " + secondSmallest);
+        }
+    }
+}
+
+
+30. Write a Java program to implement bubble sort on an array of integers using loops and conditional statements.
+public class R192211776 {
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        bubbleSort(arr);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+
+
+31. Write a Java program to implement insertion sort on an array of integers using loops and conditional statements.
+public class R192211776 {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 9, 1, 5, 6};
+        insertionSort(arr);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static void insertionSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
+}
