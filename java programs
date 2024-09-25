@@ -638,3 +638,660 @@ public class R192211776 {
         }
     }
 }
+1.Two Sum
+import java.util.HashMap;
+import java.util.Scanner;
+public class R192211776 {
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> numToIndex = new HashMap<>()
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (numToIndex.containsKey(complement)) {
+                return new int[] { numToIndex.get(complement), i };
+            }
+            numToIndex.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();  
+        int[] nums = new int[size];
+        System.out.print("Enter the elements of the array: ");
+        for (int i = 0; i < size; i++) {
+            nums[i] = scanner.nextInt();
+        }
+        System.out.print("Enter the target sum: ");
+        int target = scanner.nextInt();
+        try {
+            int[] result = twoSum(nums, target);
+            System.out.println("Result: [" + result[0] + ", " + result[1] + "]");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        scanner.close();
+    }
+}
+
+2.Palindrome Number
+import java.util.Scanner;
+public class R192211776 {
+    public static boolean isPalindrome(int x) {
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+        int reversed = 0;
+        while (x > reversed) {
+            reversed = reversed * 10 + x % 10;
+            x /= 10;
+        }
+        return x == reversed || x == reversed / 10;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+        System.out.println("Is the number a palindrome? " + isPalindrome(number));
+        scanner.close();
+    }
+}
+3.Roman to Integer
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class R192211776 {
+    public static int romanToInt(String s) {
+        HashMap<Character, Integer> romanMap = new HashMap<>();
+        romanMap.put('I', 1);
+        romanMap.put('V', 5);
+        romanMap.put('X', 10);
+        romanMap.put('L', 50);
+        romanMap.put('C', 100);
+        romanMap.put('D', 500);
+        romanMap.put('M', 1000);
+        
+        int total = 0;
+        int prevValue = 0;
+        
+        for (int i = s.length() - 1; i >= 0; i--) {
+            int currentValue = romanMap.get(s.charAt(i));
+            if (currentValue < prevValue) {
+                total -= currentValue;
+            } else {
+                total += currentValue;
+            }
+            prevValue = currentValue;
+        }
+        
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Roman numeral:");
+        String s = sc.nextLine();
+        System.out.println("The integer value is: " + romanToInt(s));
+        sc.close();
+    }
+}
+4.Longest Common Prefix
+import java.util.Scanner;
+public class R192211776 {
+    public static String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        String prefix = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (strs[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if (prefix.isEmpty()) {
+                    return "";
+                }
+            }
+        }
+        return prefix;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of strings:");
+        int n = sc.nextInt();
+        sc.nextLine(); 
+        String[] strs = new String[n];
+        System.out.println("Enter the strings:");
+        for (int i = 0; i < n; i++) {
+            strs[i] = sc.nextLine();
+        }
+        System.out.println("Longest common prefix: " + longestCommonPrefix(strs));
+        sc.close();
+    }
+}
+5.Valid Parentheses
+import java.util.Scanner;
+import java.util.Stack;
+
+public class R192211776 {
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char top = stack.pop();
+                if ((c == ')' && top != '(') || (c == '}' && top != '{') || (c == ']' && top != '[')) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string containing parentheses:");
+        String s = sc.nextLine();
+        System.out.println("Is the input valid? " + isValid(s));
+        sc.close();
+    }
+}
+6.Merge Two Sorted Lists
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
+}
+
+public class R192211776 {
+    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        
+        while (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                current.next = list1;
+                list1 = list1.next;
+            } else {
+                current.next = list2;
+                list2 = list2.next;
+            }
+            current = current.next;
+        }
+        
+        if (list1 != null) {
+            current.next = list1;
+        } else {
+            current.next = list2;
+        }
+        
+        return dummy.next;
+    }
+
+    public static void main(String[] args) {
+       
+        ListNode list1 = new ListNode(1);
+        list1.next = new ListNode(2);
+        list1.next.next = new ListNode(4);
+
+        ListNode list2 = new ListNode(1);
+        list2.next = new ListNode(3);
+        list2.next.next = new ListNode(4);
+
+        ListNode mergedList = mergeTwoLists(list1, list2);
+        printList(mergedList);
+    }
+
+    private static void printList(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+}
+7.Remove Duplicates from Sorted Array
+import java.util.Scanner;
+public class R192211776{
+    public static int removeDuplicates(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        
+        int k = 1; 
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[k - 1]) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+        return k;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of elements in the array:");
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        System.out.println("Enter the sorted elements of the array:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        int k = removeDuplicates(nums);
+        System.out.println("Number of unique elements: " + k);
+        System.out.print("Unique elements: ");
+        for (int i = 0; i < k; i++) {
+            System.out.print(nums[i] + " ");
+        }
+        sc.close();
+    }
+}
+8.Remove Element
+import java.util.Scanner;
+
+public class R192211776 {
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.println("Enter the number of elements in the array:");
+            int n = sc.nextInt();
+            int[] nums = new int[n];
+            System.out.println("Enter the elements of the array:");
+            for (int i = 0; i < n; i++) {
+                nums[i] = sc.nextInt();
+            }
+            System.out.println("Enter the value to filter out:");
+            int val = sc.nextInt();
+
+            System.out.print("Elements not equal to " + val + ": ");
+            for (int i = 0; i < n; i++) {
+                if (nums[i] != val) {
+                    System.out.print(nums[i] + " ");
+                }
+            }
+            System.out.println();
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            sc.close();
+        }
+    }
+}
+
+9.Find the Index of the First Occurrence in a String
+import java.util.Scanner;
+
+public class R192211776{
+    public static int strStr(String haystack, String needle) {
+        if (needle.length() == 0) {
+            return 0;
+        }
+        return haystack.indexOf(needle);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the haystack string:");
+        String haystack = sc.nextLine();
+        System.out.println("Enter the needle string:");
+        String needle = sc.nextLine();
+
+        int index = strStr(haystack, needle);
+        System.out.println("Index of first occurrence: " + index);
+        sc.close();
+    }
+}
+
+10.Search Insert Position
+import java.util.Scanner;
+
+public class R192211776{
+    public static int searchInsert(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of elements in the array:");
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        System.out.println("Enter the sorted elements of the array:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+        System.out.println("Enter the target value:");
+        int target = sc.nextInt();
+
+        int index = searchInsert(nums, target);
+        System.out.println("Index: " + index);
+        sc.close();
+    }
+}
+
+11.Length of Last Word
+import java.util.Scanner;
+
+public class R192211776 {
+    public static int lengthOfLastWord(String s) {
+        String trimmed = s.trim();
+        int lastSpaceIndex = trimmed.lastIndexOf(' ');
+        return trimmed.length() - lastSpaceIndex - 1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string:");
+        String s = sc.nextLine();
+
+        int length = lengthOfLastWord(s);
+        System.out.println("Length of the last word: " + length);
+        sc.close();
+    }
+}
+
+12.Add Binary
+import java.util.Scanner;
+
+public class R192211776{
+    public static String addBinary(String a, String b) {
+        StringBuilder result = new StringBuilder();
+        int carry = 0;
+        int i = a.length() - 1, j = b.length() - 1;
+
+        while (i >= 0 || j >= 0 || carry > 0) {
+            int sum = carry;
+            if (i >= 0) {
+                sum += a.charAt(i) - '0';
+                i--;
+            }
+            if (j >= 0) {
+                sum += b.charAt(j) - '0';
+                j--;
+            }
+            result.append(sum % 2);
+            carry = sum / 2;
+        }
+
+        return result.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first binary string:");
+        String a = sc.nextLine();
+        System.out.println("Enter second binary string:");
+        String b = sc.nextLine();
+
+        String sum = addBinary(a, b);
+        System.out.println("Sum of the binary strings: " + sum);
+        sc.close();
+    }
+}
+
+13.Sqrt(x)
+import java.util.Scanner;
+
+public class R192211776 {
+    public static int mySqrt(int x) {
+        if (x < 2) {
+            return x;
+        }
+        
+        int left = 2, right = x / 2, ans = 0;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            long square = (long) mid * mid;
+
+            if (square == x) {
+                return mid;
+            } else if (square < x) {
+                ans = mid;
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a non-negative integer:");
+        int x = sc.nextInt();
+
+        int result = mySqrt(x);
+        System.out.println("Square root of " + x + " rounded down: " + result);
+        sc.close();
+    }
+}
+14.Climbing Stairs
+import java.util.Scanner;
+
+public class R192211776{
+    public static int climbStairs(int n) {
+        if (n <= 2) {
+            return n;
+        }
+        
+        int first = 1, second = 2, ways = 0;
+
+        for (int i = 3; i <= n; i++) {
+            ways = first + second;
+            first = second;
+            second = ways;
+        }
+        
+        return second;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of steps:");
+        int n = sc.nextInt();
+
+        int result = climbStairs(n);
+        System.out.println("Number of distinct ways to climb to the top: " + result);
+        sc.close();
+    }
+}
+15.Plus One
+import java.util.Scanner;
+
+public class R192211776 {
+    public static int[] plusOne(int[] digits) {
+        int n = digits.length;
+        for (int i = n - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
+            digits[i] = 0;
+        }
+        int[] result = new int[n + 1];
+        result[0] = 1;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of digits:");
+        int n = sc.nextInt();
+        int[] digits = new int[n];
+        System.out.println("Enter the digits:");
+        for (int i = 0; i < n; i++) {
+            digits[i] = sc.nextInt();
+        }
+
+        int[] result = plusOne(digits);
+        System.out.print("Result after incrementing: ");
+        for (int digit : result) {
+            System.out.print(digit + " ");
+        }
+        System.out.println();
+        sc.close();
+    }
+}
+16.Climbing Stairs
+import java.util.Scanner;
+
+public class R192211776{
+    public static int climbStairs(int n) {
+        if (n <= 2) {
+            return n;
+        }
+        
+        int first = 1, second = 2, ways = 0;
+
+        for (int i = 3; i <= n; i++) {
+            ways = first + second;
+            first = second;
+            second = ways;
+        }
+        
+        return second;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of steps:");
+        int n = sc.nextInt();
+
+        int result = climbStairs(n);
+        System.out.println("Number of distinct ways to climb to the top: " + result);
+        sc.close();
+    }
+}
+
+16.Remove Duplicates from Sorted List
+import java.util.Scanner;
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+public class R192211776 {
+    public static ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        
+        ListNode current = head;
+        
+        while (current != null && current.next != null) {
+            if (current.val == current.next.val) {
+                current.next = current.next.next;
+            } else {
+                current = current.next;
+            }
+        }
+        
+        return head;
+    }
+
+    public static void printList(ListNode head) {
+        ListNode current = head;
+        while (current != null) {
+            System.out.print(current.val + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of elements in the linked list:");
+        int n = sc.nextInt();
+
+        ListNode head = null, tail = null;
+
+        System.out.println("Enter the elements (sorted):");
+        for (int i = 0; i < n; i++) {
+            int value = sc.nextInt();
+            ListNode newNode = new ListNode(value);
+            if (head == null) {
+                head = newNode;
+                tail = head;
+            } else {
+                tail.next = newNode;
+                tail = tail.next;
+            }
+        }
+
+        head = deleteDuplicates(head);
+        System.out.println("Linked list after removing duplicates:");
+        printList(head);
+        sc.close();
+    }
+}
+
+
+17.Merge Sorted Array
+import java.util.Scanner;
+
+public class R192211776{
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1; 
+        int j = n - 1; 
+        int k = m + n - 1; 
+
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            } else {
+                nums1[k--] = nums2[j--];
+            }
+        }
+
+        while (j >= 0) {
+            nums1[k--] = nums2[j--];
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of elements in nums1:");
+        int m = sc.nextInt();
+        int[] nums1 = new int[m + (m > 0 ? 3 : 0)]; // Create array with size m + 3
+        System.out.println("Enter the elements of nums1:");
+        for (int i = 0; i < m; i++) {
+            nums1[i] = sc.nextInt();
+        }
+        System.out.println("Enter the number of elements in nums2:");
+        int n = sc.nextInt();
+        int[] nums2 = new int[n];
+        System.out.println("Enter the elements of nums2:");
+        for (int i = 0; i < n; i++) {
+            nums2[i] = sc.nextInt();
+        }
+        merge(nums1, m, nums2, n);
+        System.out.println("Merged array:");
+        for (int num : nums1) {
+            System.out.print(num + " ");
+        }
+        sc.close();
+    }
+}
+
+
