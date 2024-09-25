@@ -1,4 +1,5 @@
 1. Write a Java program that takes two integers as input from the user and calculates their sum, difference, product, and quotient using arithmetic operators.
+Arithmetic
 import java.util.*;
 public class R192211776{
  public static void main(String[] args) {
@@ -17,6 +18,7 @@ public class R192211776{
 }
 
 2. Write a Java program to find the maximum of three numbers using conditional statements.
+MAX
 import java.util.Scanner;
 public class R192211776{
     public static void main(String[] args) {
@@ -30,6 +32,7 @@ public class R192211776{
 }
 
 3. Write a Java program to check whether a given year is a leap year or not using conditional statements.
+Leap
 import java.util.*;
 public class R192211776{
  public static void main (String[]args){
@@ -44,6 +47,7 @@ public class R192211776{
 } 
 
 4. Write a Java program to print the Fibonacci series up to a given number using loops.
+Fibonacci
 public class R192211776 {
     public static void main(String[] args) {
         int n = 10;
@@ -61,6 +65,7 @@ public class R192211776 {
 
 
 5. Write a Java program to calculate the factorial of a given number using loops.
+Factorial
 import java.util.Scanner;
 
 public class R192211776 {
@@ -84,6 +89,7 @@ public class R192211776 {
 }
 
 6. Write a Java program to print the following pattern using loops:* ** *** **** *****
+RT-Pattern
 import java.util.Scanner;
 public class R192211776 {
  public static void main(String[] args) {
@@ -99,6 +105,7 @@ public class R192211776 {
 }
 
 7. Write a Java program to implement binary search on an array of integers using loops and conditional statements.
+Search
 import java.util.Scanner;
 public class R192211776{
     public static int binarySearch(int[] arr, int target) {
@@ -135,6 +142,7 @@ public class R192211776{
 }
 
 8. Write a Java program to find the GCD (Greatest Common Divisor) of two numbers using loops and conditional statements.
+GCD
 import java.util.Scanner;
 public class R192211776 {
     public static void main(String[] args) {
@@ -157,6 +165,7 @@ public class R192211776 {
 }
 
 9. Write a Java program to check whether a given number is a prime number or not using loops and conditional statements.
+Prime
 import java.util.Scanner;
 
 public class R192211776 {
@@ -181,6 +190,7 @@ public class R192211776 {
 }
 
 10. Write a Java program to implement selection sort on an array of integers using loops and conditional statements.
+Sort
 import java.util.Scanner;
 public class R192211776 {
     public static void main(String[] args) {
@@ -210,6 +220,7 @@ public class R192211776 {
 }
 
 11. Write a Java program to print the multiplication table of a given number using loops.
+Table
 import java.util.Scanner;
 public class R192211776{
   public static void main(String[] args0){
@@ -228,6 +239,7 @@ public class R192211776{
 }
 
 12. 2. Write a Java program to find the factorial of a given number using recursion.
+Factorial
 import java.util.Scanner;
 
 public class R192211776 {
@@ -258,6 +270,7 @@ public class R192211776 {
 
 
 13. Write a Java program to print the following pattern using loops:***** **** *** ** *
+LT-Pattern
 import java.util.Scanner;
 public class R192211776{
     public static void main(String[] args) {
@@ -276,6 +289,7 @@ public class R192211776{
 }
 
 14. Write a Java program to find the LCM (Least Common Multiple) of two numbers using loops and conditional statements.
+LCM
 import java.util.Scanner;
 
 public class R192211776 {
@@ -311,6 +325,7 @@ public class R192211776 {
 
 
 15. Write a Java program to convert a decimal number to binary using loops and conditional statements.
+D to B
 import java.util.Scanner;
 public class R192211776 {
     public static void main(String[] args) {
@@ -323,6 +338,7 @@ public class R192211776 {
 
 
 16. Write a Java program to convert a binary number to decimal using loops and conditional statements.
+B to D
 import java.util.Scanner;
 public class R192211776 {
     public static void main(String[] args) {
@@ -340,6 +356,7 @@ public class R192211776 {
 
 
 17. Write a Java program to calculate the sum of the digits of a given number using loops and conditional statements.
+Sum
 import java.util.Scanner;
 
 public class R192211776{
@@ -357,6 +374,7 @@ public class R192211776{
 
 
 18. Write a Java program to calculate the product of the digits of a given number using loops and conditional statements.
+Product
 import java.util.Scanner;
 
 public class R192211776 {
@@ -374,6 +392,7 @@ public class R192211776 {
 
 
 19. Write a Java program to find the power of a number using loops and conditional statements.
+Power
 import java.util.Scanner;
 public class R192211776 {
     public static void main(String[] args) {
@@ -388,6 +407,7 @@ public class R192211776 {
 }
 
 20. Write a Java program to calculate the area of a circle using the radius input by the user.
+Area Circle
 import java.util.Scanner;
 public class R192211776{
   public static void main(String[] args){
@@ -399,6 +419,7 @@ public class R192211776{
 }
 
 21. Write a Java program to calculate the volume of a sphere using the radius input by the user.
+Shpere
 import java.util.Scanner;
 public class R192211776{
   public static void main(String[] args){
@@ -410,6 +431,7 @@ public class R192211776{
 }
 
 22. Write a Java program to check whether a given string is a palindrome or not using loops and conditional statements.
+Palindrome
 import java.util.Scanner;
 
 public class R192211776 {
@@ -432,6 +454,7 @@ public class R192211776 {
 
 
 23. Write a Java program to check whether a given number is an Armstrong number or not using loops and conditional statements.
+Armstrong
 import java.util.Scanner;
 
 public class R192211776 {
@@ -453,7 +476,8 @@ public class R192211776 {
     }
 }
 
-24. Write a Java program to print the following pattern using loops:1 22 333 4444 55555
+24. Write a Java program to print the following pattern using loops:1 22 333 4444 55555.
+RT-num.Pattern
 import java.util.Scanner;
 public class R192211776 {
  public static void main(String[] args) {
@@ -469,6 +493,7 @@ public class R192211776 {
 }
 
 25. Write a Java program to check whether a given number is a perfect number or not using loops and conditional statements.
+Perfect
 import java.util.Scanner;
 
 public class R192211776 {
@@ -497,6 +522,7 @@ public class R192211776 {
 }
 
 26. Write a Java program to find the largest element in an array of integers using loops and conditional statements.
+Max Array
 public class R192211776{
     public static void main(String[] args) {
         int[] arr = {8, 4, 3, 1, 9, 6, 2};
@@ -516,6 +542,7 @@ public class R192211776{
 
 
 27. Write a Java program to find the second largest element in an array of integers using loops and conditional statements.
+2nd Max
 import java.util.Arrays;
 
 public class R192211776 {
@@ -544,6 +571,7 @@ public class R192211776 {
 
 
 28. Write a Java program to find the smallest element in an array of integers using loops and conditional statements.
+Min
 public class R192211776{
     public static void main(String[] args) {
         int[] arr = {64, 25, 12, 22, 11};
@@ -564,6 +592,7 @@ public class R192211776{
 
 
 29. Write a Java program to find the second smallest element in an array of integers using loops and conditional statements.
+2nd Min
 import java.util.Arrays;
 
 public class R192211776 {
@@ -592,6 +621,7 @@ public class R192211776 {
 
 
 30. Write a Java program to implement bubble sort on an array of integers using loops and conditional statements.
+Sort-B
 public class R192211776 {
     public static void main(String[] args) {
         int[] arr = {64, 34, 25, 12, 22, 11, 90};
@@ -617,6 +647,7 @@ public class R192211776 {
 
 
 31. Write a Java program to implement insertion sort on an array of integers using loops and conditional statements.
+Sort-I
 public class R192211776 {
     public static void main(String[] args) {
         int[] arr = {5, 2, 9, 1, 5, 6};
